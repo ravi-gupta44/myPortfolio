@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Background animation - subtle floating shapes */
+.bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  filter: blur(60px);
+  animation: float 15s infinite ease-in-out;
+}
+
+.shape-1 {
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(45deg, #3f51b5, #6573c3);
+  top: -100px;
+  right: -50px;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 450px;
+  height: 450px;
+  background: linear-gradient(45deg, #f50057, #ff4081);
+  bottom: -150px;
+  left: -100px;
+  animation-delay: -5s;
+}
+
+.shape-3 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #3f51b5, #f50057);
+  top: 40%;
+  right: 15%;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(40px) scale(1.05);
+  }
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 64px; /* Height of navbar */
+  perspective: 1000px; /* For 3D effects */
+}
+
+.section-container {
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #3f51b5, #f50057);
+  border-radius: 2px;
+}
+
+/* Enhanced Animations */
+.animated-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animated-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3D Flip Card Animation */
+.flip-card {
+  perspective: 1000px;
+  height: 100%;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.flip-card-front {
+  overflow: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #3f51b566, #f5005766);
+  backdrop-filter: blur(5px);
+}
+
+/* 3D Hover Effect for Cards */
+.card-3d-effect {
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* 3D floating animation */
+.float-3d {
+  animation: float3d 6s ease-in-out infinite;
+}
+
+@keyframes float3d {
+  0%, 100% {
+    transform: translateY(0) translateZ(0) rotateX(0) rotateY(0);
+  }
+  25% {
+    transform: translateY(-10px) translateZ(20px) rotateX(5deg) rotateY(-5deg);
+  }
+  50% {
+    transform: translateY(5px) translateZ(10px) rotateX(-2deg) rotateY(3deg);
+  }
+  75% {
+    transform: translateY(-5px) translateZ(15px) rotateX(3deg) rotateY(-2deg);
+  }
+}
+
+/* Parallax effect */
+.parallax-container {
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform-style: preserve-3d;
+}
+
+.parallax-layer-0 { transform: translateZ(0); }
+.parallax-layer-1 { transform: translateZ(50px); }
+.parallax-layer-2 { transform: translateZ(100px); }
+.parallax-layer-3 { transform: translateZ(150px); }
+
+/* Animated progress bar with gradient */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-progress .MuiLinearProgress-bar {
+  background-size: 200% auto;
+  animation: gradient-shift 3s linear infinite;
+}
+
+/* 3D skill icon rotation */
+.skill-icon {
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-icon:hover {
+  transform: rotate3d(1, 1, 1, 15deg) scale(1.2);
+}
+
+/* Mouse position based 3D effect */
+.tilt-effect {
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* Glowing effect for buttons */
+.glow-on-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-on-hover:after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.glow-on-hover:hover:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (max-width: 900px) {
+  .section-container {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-container {
+    padding: 40px 16px;
+  }
+  
+  .section-title {
+    margin-bottom: 40px;
+  }
+  
+  /* Reduce 3D effects on mobile for better performance */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(0);
+  }
+  
+  .float-3d {
+    animation: none;
+  }
+}
