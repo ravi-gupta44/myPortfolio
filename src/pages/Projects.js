@@ -54,7 +54,7 @@ const Projects = () => {
       id: 1,
       title: 'Jobby App',
       description: 'An all-encompassing job search platform with pages for Login, Home, Jobs, and Job item details. Features secure user authentication with JWT tokens and REST API calls.',
-      image: '/api/placeholder/600/300',
+      image: '/public/Jobby.png',
       technologies: ['React JS', 'JavaScript', 'CSS', 'Bootstrap', 'REST API'],
       github: 'https://github.com/ravi-gupta44/Jobby-App',
       live: 'https://github.com/ravi-gupta44/Jobby-App',
@@ -64,7 +64,7 @@ const Projects = () => {
       id: 2,
       title: 'QuizCraft',
       description: 'A full-stack quiz web app using Express serving a REST API with React as the frontend. Includes an Admin Panel for managing quiz data and visualizes quiz results with charts.',
-      image: '/api/placeholder/600/300',
+      image: '/public/QuizSS.png',
       technologies: ['React', 'TypeScript', 'MongoDB', 'Express', 'Material UI'],
       github: 'https://github.com/',
       live: 'https://example.com/quizcraft',
@@ -74,10 +74,10 @@ const Projects = () => {
       id: 3,
       title: 'Generative AI Chatbot',
       description: 'An innovative chatbot designed to offer personalized interactions with users. Features a user-friendly UI created with HTML, CSS, and Bootstrap to display user-chatbot interactions.',
-      image: '/api/placeholder/600/300',
+      image: '/public/AIGEN.png',
       technologies: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
-      github: 'https://github.com/',
-      live: 'https://example.com/chatbot',
+      github: 'https://github.com/ravi-gupta44/AIChatBotApp',
+      live: 'ai-chat-bot-app-bice.vercel.app',
       period: 'July 2023 - Aug 2023'
     }
   ];
